@@ -10,7 +10,7 @@
     <style>
         body {
             margin: 0;
-            padding: 0 0 100px 0; /* espai per al menú fix i botó final */
+            padding: 0 0 100px 0; /* espai per al menú i botó final */
             font-size: 110%;
             text-align: center;
 
@@ -24,9 +24,29 @@
             color: white;
         }
 
+        /* 🏠 ICONA HOME */
+        .home-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+        }
+
+        .home-btn img {
+            width: 45px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+            filter: invert(100%); /* opcional: fa la icona blanca */
+        }
+
+        .home-btn img:hover {
+            transform: scale(1.1);
+        }
+
         h1 {
             font-size: 200%;
-            margin-top: 20px;
+            margin-top: 60px; /* espai per a la icona */
             margin-bottom: 10px;
             text-transform: uppercase;
         }
@@ -51,7 +71,7 @@
             color: black;
         }
 
-        /* MENÚ INFERIOR FIXAT */
+        /* MENÚ FIXAT ABAIX */
         .menu-inferior {
             position: fixed;
             bottom: 0;
@@ -79,7 +99,7 @@
             border-right: none;
         }
 
-        /* Blocs 1, 2 i 3 en verd */
+        /* Blocs actius */
         #bloc1, #bloc2, #bloc3 {
             background-color: #2ecc71;
             color: white !important;
@@ -111,6 +131,11 @@
     </style>
 </head>
 <body>
+
+    <!-- 🏠 ICONA HOME -->
+    <a href="paginaboto.html" class="home-btn">
+        <img src="home.png" alt="Home">
+    </a>
 
     <h1>Formulari de usuari</h1>
     <h2 class="subtitol">Bloc 4 — Perfil de l’usuari</h2>
@@ -165,7 +190,7 @@
         <a id="bloc1" href="form_bloc1.html">Bloc 1</a>
         <a id="bloc2" href="form_bloc2.html">Bloc 2</a>
         <a id="bloc3" href="form_bloc3.html">Bloc 3</a>
-        <a id="bloc4"  href="form_bloc4.html">Bloc 4</a>
+        <a id="bloc4" href="form_bloc4.html">Bloc 4</a>
     </div>
 
     <!-- BOTÓ FINAL -->
