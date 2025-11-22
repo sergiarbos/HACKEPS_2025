@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Clients · El Joc de Barris{% endblock %}
+
+{% block content %}
+<h2>Llista de clients</h2>
+<p>Tria un client per veure la recomanació de barri i la justificació.</p>
+
+<div class="clients-grid">
+    {% for client in clients %}
+        <article class="client-card">
+            <h3>{{ client.name }}</h3>
+            <p><strong>Rol:</strong> {{ client.role }}</p>
+            <p>{{ client.short_description }}</p>
+            <a href="{% url 'client_detail' client.id %}">Veure recomanació →</a>
+        </article>
+    {% endfor %}
+</div>
+{% endblock %}

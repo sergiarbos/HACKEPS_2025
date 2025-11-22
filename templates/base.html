@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}El Joc de Barris{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+<header>
+    <h1>El Joc de Barris</h1>
+    <p>Recomanador de barris per als clients estil Joc de Trons</p>
+    <nav>
+        <a href="{% url 'home' %}">Inici</a>
+    </nav>
+</header>
 
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <small>HackEPS 2025 · restb.ai · Django</small>
+</footer>
 </body>
 </html>
