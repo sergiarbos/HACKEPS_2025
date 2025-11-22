@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FORMULARI</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin-top: 10%;
+            font-size: 120%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 200%;
+            font-weight: 600;
+            margin-bottom: 2%;
+        }
+
+        h2.subtitol {
+            font-size: 160%;
+            margin-bottom: 5%;
+            font-weight: 600;
+            color: #0d6efd;
+        }
+
+        h3 {
+            margin-top: 6%;
+            margin-bottom: 3%;
+            font-weight: 600;
+        }
+
+        .contenedor-boton button {
+            font-size: 100%;
+            padding: 2% 4%;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulari de usuari</h1>
+    <h2 class="subtitol">Bloc 4 — Perfil de l’usuari</h2>
+
+    <form>
+
+        <h3>Nivell de seguretat requerit</h3>
+        <select name="seguretat_requerida" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="estandard">Estàndard</option>
+            <option value="alta">Alta</option>
+            <option value="molt_alta">Molt alta</option>
+        </select>
+
+        <h3>Dependència del transport públic</h3>
+        <select name="transport_public_usuari" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="basic">Bàsic</option>
+            <option value="bo">Bo</option>
+            <option value="247">24/7</option>
+        </select>
+
+        <h3>Valoració de zones verdes</h3>
+        <select name="valoracio_verda" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="molt">Sí, molt</option>
+            <option value="una_mica">Una mica</option>
+            <option value="no_importa">No és prioritari</option>
+        </select>
+
+        <h3>Necessita accessibilitat total?</h3>
+        <select name="accessibilitat" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+            <option value="indiferent">Indiferent</option>
+        </select>
+
+        <h3>Prioritat principal</h3>
+        <select name="prioritat" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="comunitat">Comunitat</option>
+            <option value="privacitat_luxe">Privacitat i luxe</option>
+            <option value="accessibilitat">Accessibilitat</option>
+            <option value="cultura">Cultura i gastronomia</option>
+        </select>
+
+    </form>
+
+    <!-- Botó final -->
+    <div class="contenedor-boton mt-4">
+        <button class="btn btn-success btn-lg fw-bold" onclick="window.location.href='resultat.html'">
+            TROBA ZONA
+        </button>
+    </div>
+
+</body>
+</html>
