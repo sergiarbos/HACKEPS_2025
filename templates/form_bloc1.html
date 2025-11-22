@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FORMULARI — CASA STARK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tipografia medieval estil Stark -->
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin-top: 8%;
+            font-size: 120%;
+            text-align: center;
+            background: #f2f2f2;
+            font-family: 'Marcellus', serif;
+            color: #1a1a1a;
+        }
+
+        h1 {
+            font-size: 240%;
+            font-weight: 600;
+            margin-bottom: 1%;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #22303C;
+        }
+
+        h2.subtitol {
+            font-size: 170%;
+            margin-bottom: 5%;
+            font-weight: 600;
+            color: #3A4A57;
+            border-bottom: 2px solid #3A4A57;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            margin-top: 6%;
+            margin-bottom: 3%;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Select estil Stark */
+        select {
+            background: #e8ecef;
+            border: 2px solid #a3b0b9;
+            color: #1d1d1d;
+            font-family: 'Marcellus', serif;
+        }
+
+        select:focus {
+            border-color: #3A4A57;
+            box-shadow: 0 0 5px #3A4A57;
+        }
+
+        /* NAVBAR BOTTOM ESTIL STARK (gris clar) */
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #d9dfe3; /* Gris clar gelat */
+            border-top: 3px solid #b7c2c9;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 120%;
+            font-weight: 600;
+            color: #2c3e50 !important;
+            letter-spacing: 1px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #3A4A57 !important; /* Blau gel */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulari de usuari</h1>
+    <h2 class="subtitol">Bloc 1 — Demografia</h2>
+
+    <form>
+
+        <h3>Renda mediana</h3>
+        <select name="renda_mediana" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="baixa">Baixa</option>
+            <option value="mitjana">Mitjana</option>
+            <option value="alta">Alta</option>
+        </select>
+
+        <h3>Densitat de població</h3>
+        <select name="densitat_poblacio" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="baixa">Baixa</option>
+            <option value="mitjana">Mitjana</option>
+            <option value="alta">Alta</option>
+        </select>
+
+        <h3>Edat mediana</h3>
+        <select name="edat_mediana" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="jove">Jove</option>
+            <option value="mitjana">Mitjana</option>
+            <option value="envellida">Envellida</option>
+        </select>
+
+    </form>
+
+    <!-- NAVIGATION BOTTOM -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid justify-content-around">
+
+            <a class="nav-link" href="form_bloc1.html">Bloc 1</a>
+            <a class="nav-link" href="form_bloc2.html">Bloc 2</a>
+            <a class="nav-link" href="form_bloc3.html">Bloc 3</a>
+            <a class="nav-link" href="form_bloc4.html">Bloc 4</a>
+
+        </div>
+    </nav>
+
+</body>
+</html>
