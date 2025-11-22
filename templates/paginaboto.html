@@ -7,26 +7,32 @@
 
     <style>
         body {
-            margin-top: 10%;   /* antes 10rem */
-            font-size: 120%;   /* escala relativa en lugar de px */
+            margin-top: 10%;
+            font-size: 120%;
+
+            /* FONS TRONO */
+            background: url('trono.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         h1 {
-            font-size: 250%;   /* aumenta el tamaño usando % */
+            font-size: 250%;
             font-weight: 600;
-            margin-bottom: 5%; /* separación abajo en % */
+            margin-bottom: 5%;
             text-align: center;
+            color:white
         }
 
         .btn {
-            font-size: 100%;   /* tamaño del texto del botón */
-            padding: 2% 4%;    /* padding en % */
+            font-size: 100%;
+            padding: 2% 4%;
         }
 
-        /* Contenedor del botón */
         .contenedor-boton {
-            width: 100%;        /* ancho del contenedor en % */
-            margin: 2% auto;   /* centra con auto + % */
+            width: 100%;
+            margin: 2% auto;
             text-align: center;
         }
     </style>
@@ -37,7 +43,7 @@
     <h1>Busca la teva zona on viure</h1>
 
     <div class="contenedor-boton">
-        <a href="{% url 'form' %}" class="btn btn-primary btn-lg" role="button">COM ETS?</a>
+        <a href="form_bloc1.html" class="btn btn-primary btn-lg" role="button">COM ETS?</a>
     </div>
 
 </body>
