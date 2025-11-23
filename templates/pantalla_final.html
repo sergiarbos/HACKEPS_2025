@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Centrar TOT el contingut al mig */
+        body {
+            margin: 0;
+            height: 100vh; /* alçada total de la pantalla */
+            display: flex;
+            justify-content: center;  /* centra horitzontalment */
+            align-items: center;      /* centra verticalment */
+            flex-direction: column;   /* col·loca el títol i el botó en columna */
+            text-align: center;
+        }
+
+        /* 🏠 ICONA HOME */
+        .home-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+        }
+
+        .home-btn img {
+            width: 45px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+            filter: invert(100%);
+        }
+
+        .home-btn img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>El teu barri ideal és:</h1>
+
+    <!-- 🏠 BOTÓ HOME -->
+    <a href="paginaboto.html" class="home-btn">
+        <img src="home.png" alt="Home">
+    </a>
+    
+</body>
+</html>
