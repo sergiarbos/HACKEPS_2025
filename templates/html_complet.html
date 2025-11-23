@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulari — GOT</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tipografia -->
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0 0 90px 0; /* espai per al menú inferior */
+            font-size: 110%;
+            text-align: center;
+            font-family: 'Marcellus', serif;
+            color: white;
+            text-shadow: 1px 1px 3px black;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* FONS PER CADA BLOC (CASA) */
+        body.bloc1 { background-image: url('baratheon.png'); }
+        body.bloc2 { background-image: url('lannister.png'); }
+        body.bloc3 { background-image: url('targaryen.png'); }
+        body.bloc4 { background-image: url('stark.png'); }
+
+        /* 🏠 ICONA HOME */
+        .home-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+        }
+
+        .home-btn img {
+            width: 45px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+            filter: invert(100%);
+        }
+
+        .home-btn img:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 200%;
+            margin-top: 60px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        h2.subtitol {
+            font-size: 150%;
+            margin-bottom: 10px;
+            padding-bottom: 3px;
+            border-bottom: 2px solid rgba(255,255,255,0.8);
+            display: inline-block;
+        }
+
+        h3 {
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 115%;
+        }
+
+        select {
+            background-color: rgba(255,255,255,0.9);
+            color: black;
+        }
+
+        .screen {
+            display: none;
+        }
+
+        /* MENÚ INFERIOR */
+        .menu-inferior {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #dce3e8;
+            display: flex;
+            justify-content: space-around;
+            border-top: 2px solid #c3ccd3;
+            z-index: 999;
+        }
+
+        .menu-inferior a {
+            flex: 1;
+            text-align: center;
+            padding: 12px 0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            color: black;
+            border-right: 1px solid #c3ccd3;
+        }
+
+        .menu-inferior a:last-child {
+            border-right: none;
+        }
+
+        /* COLORS DEL BLOC ACTIU (OPCIÓ A) */
+        body.bloc1 .menu-inferior a[data-bloc="1"],
+        body.bloc2 .menu-inferior a[data-bloc="2"],
+        body.bloc3 .menu-inferior a[data-bloc="3"],
+        body.bloc4 .menu-inferior a[data-bloc="4"] {
+            background-color: #d3a007; /* daurat GOT */
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        /* COLORS ESPECIALS PER TÍTOLS PER CASA */
+        body.bloc1 h2.subtitol { border-color: #ffdd55; color: #ffdd55; }
+        body.bloc2 h2.subtitol { border-color: #ffd700; color: #ffd700; }
+        body.bloc3 h2.subtitol { border-color: #ff4b4b; color: #ff4b4b; }
+        body.bloc4 h2.subtitol { border-color: #bfc7ce; color: #ffffff; }
+
+        /* BOTÓ FINAL BLOC 4 */
+        .contenedor-boton {
+            margin-top: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 { font-size: 170%; }
+            h2.subtitol { font-size: 130%; }
+            h3 { font-size: 105%; }
+            .menu-inferior a { font-size: 14px; padding: 8px 0; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 150%; }
+            h2.subtitol { font-size: 120%; }
+            h3 { font-size: 100%; }
+            .menu-inferior a { font-size: 12px; padding: 6px 0; }
+        }
+    </style>
+</head>
+<body class="bloc1">
+
+    <!-- 🏠 HOME -->
+    <a href="paginaboto.html" class="home-btn">
+        <img src="home.png" alt="Home">
+    </a>
+
+    <h1>Formulari de usuari</h1>
+
+    <!-- 🔹 BLOC 1 — DEMOGRAFIA -->
+    <section class="screen" data-bloc="1">
+        <h2 class="subtitol">Bloc 1 — Demografia</h2>
+
+        <form>
+            <h3>Renda mitjana</h3>
+            <select name="renda_mediana" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="baixa">Baixa</option>
+                <option value="mitjana">Mitjana</option>
+                <option value="alta">Alta</option>
+            </select>
+
+            <h3>Densitat de població</h3>
+            <select name="densitat_poblacio" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="baixa">Baixa</option>
+                <option value="mitjana">Mitjana</option>
+                <option value="alta">Alta</option>
+            </select>
+
+            <h3>Edat mitjana</h3>
+            <select name="edat_mediana" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="jove">Jove</option>
+                <option value="mitjana">Mitjana</option>
+                <option value="envellida">Envellida</option>
+            </select>
+        </form>
+    </section>
+
+    <!-- 🔹 BLOC 2 — ESTIL DE VIDA -->
+    <section class="screen" data-bloc="2">
+        <h2 class="subtitol"><b>Bloc 2 — Estil de vida</b></h2>
+
+        <form>
+            <h3>Oferta gastronòmica</h3>
+            <select name="oferta_gastronomica" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="escassa">Escassa</option>
+                <option value="moderada">Moderada</option>
+                <option value="molt_alta">Molt alta</option>
+            </select>
+
+            <h3>Zones verdes</h3>
+            <select name="zones_verdes" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="pocs">Poques</option>
+                <option value="alguns">Algunes</option>
+                <option value="molts">Moltes</option>
+            </select>
+
+            <h3>Oferta cultural</h3>
+            <select name="oferta_cultural" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="baixa">Baixa</option>
+                <option value="mitjana">Mitjana</option>
+                <option value="alta">Alta</option>
+            </select>
+        </form>
+    </section>
+
+    <!-- 🔹 BLOC 3 — MOBILITAT -->
+    <section class="screen" data-bloc="3">
+        <h2 class="subtitol">Bloc 3 — Mobilitat</h2>
+
+        <form>
+            <h3>Accés al transport públic</h3>
+            <select name="transport_public" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="baix">Baix</option>
+                <option value="bo">Bo</option>
+                <option value="excel·lent">Excel·lent</option>
+            </select>
+
+            <h3>Disponibilitat bus</h3>
+            <select name="metro_bus" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="limitada">Limitada</option>
+                <option value="correcta">Correcta</option>
+                <option value="molt_abundant">Molt abundant</option>
+            </select>
+
+            <h3>Carrils bici</h3>
+            <select name="carrils_bici" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="inexistent">Inexistent</option>
+                <option value="basic">Bàsic</option>
+                <option value="extens">Extens</option>
+            </select>
+
+            <h3>Caminabilitat</h3>
+            <select name="caminabilitat" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="baixa">Baixa</option>
+                <option value="mitjana">Mitjana</option>
+                <option value="alta">Alta</option>
+            </select>
+        </form>
+    </section>
+
+    <!-- 🔹 BLOC 4 — PERFIL D’USUARI -->
+    <section class="screen" data-bloc="4">
+        <h2 class="subtitol">Bloc 4 — Perfil de l’usuari</h2>
+
+        <form>
+            <h3>Nivell de seguretat requerit</h3>
+            <select name="seguretat_requerida" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="estandard">Estàndard</option>
+                <option value="alta">Alta</option>
+                <option value="molt_alta">Molt alta</option>
+            </select>
+
+
+            <h3>Prioritat principal</h3>
+            <select name="prioritat" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="comunitat">Comunitat</option>
+                <option value="privacitat_luxe">Privacitat i luxe</option>
+                <option value="accessibilitat">Accessibilitat</option>
+                <option value="cultura">Cultura i gastronomia</option>
+            </select>
+        </form>
+
+        <div class="contenedor-boton">
+            <button class="btn btn-success btn-lg fw-bold" onclick="window.location.href='pantalla_final.html'">
+                TROBA ZONA
+            </button>
+        </div>
+    </section>
+
+    <!-- MENÚ INFERIOR -->
+    <nav class="menu-inferior">
+        <a href="#" data-bloc="1">Bloc 1</a>
+        <a href="#" data-bloc="2">Bloc 2</a>
+        <a href="#" data-bloc="3">Bloc 3</a>
+        <a href="#" data-bloc="4">Bloc 4</a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const body = document.body;
+            const screens = document.querySelectorAll('.screen');
+            const menuLinks = document.querySelectorAll('.menu-inferior a');
+
+            function activateBloc(num) {
+                // canvi classe del body per canviar fons i color menú
+                body.classList.remove('bloc1', 'bloc2', 'bloc3', 'bloc4');
+                body.classList.add('bloc' + num);
+
+                // mostrar/amagar pantalles
+                screens.forEach(sec => {
+                    sec.style.display = (sec.dataset.bloc === String(num)) ? 'block' : 'none';
+                });
+            }
+
+            // enllaços del menú
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const blocNum = this.dataset.bloc;
+                    activateBloc(blocNum);
+                });
+            });
+
+            // bloc inicial
+            activateBloc(1);
+        });
+    </script>
+
+</body>
+</html>

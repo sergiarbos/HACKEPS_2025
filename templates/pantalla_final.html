@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* FONS DE LA PÀGINA */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+
+            background: url('trono.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        /* 🏠 ICONA HOME */
+        .home-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+        }
+
+        .home-btn img {
+            width: 45px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+            filter: invert(100%);
+        }
+
+        .home-btn img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>El teu barri ideal és:</h1>
+
+    <!-- 🏠 BOTÓ HOME -->
+    <a href="paginaboto.html" class="home-btn">
+        <img src="home.png" alt="Home">
+    </a>
+    
+</body>
+</html>

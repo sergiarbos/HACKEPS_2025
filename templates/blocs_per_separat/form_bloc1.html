@@ -4,20 +4,16 @@
     <title>FORMULARI — CASA BARATHEON</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Tipografía medieval -->
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
-            padding: 0 0 70px 0; /* espacio para el menú fijo */
+            padding: 0 0 70px 0;
             font-size: 110%;
             text-align: center;
 
-            /* FONDO BARATHEON (archivo en mismo directorio) */
             background: url('baratheon.png');
             background-size: cover;
             background-position: center;
@@ -28,9 +24,29 @@
             text-shadow: 1px 1px 3px black;
         }
 
+        /* 🏠 ICONA HOME */
+        .home-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+        }
+
+        .home-btn img {
+            width: 45px;  
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+            filter: invert(100%); /* opcional: fa la icona blanca si és negra */
+        }
+
+        .home-btn img:hover {
+            transform: scale(1.1);
+        }
+
         h1 {
             font-size: 200%;
-            margin-top: 20px;
+            margin-top: 60px; /* separació per no tapar el títol amb la icona */
             margin-bottom: 5px;
             text-transform: uppercase;
         }
@@ -50,15 +66,12 @@
             font-size: 110%;
         }
 
-        /* SELECT responsive */
         select {
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid #bfa76a;
-            font-family: 'Marcellus', serif;
             color: black;
         }
 
-        /* MENÚ INFERIOR FIJO SIEMPRE PEGADO ABAJO */
         .menu-inferior {
             position: fixed;
             bottom: 0;
@@ -86,42 +99,25 @@
             border-right: none;
         }
 
-        /* HACER RESPONSIVE PARA TABLET Y MÓVIL */
-        @media (max-width: 768px) {
-            h1 { font-size: 160%; }
-            h2.subtitol { font-size: 130%; }
-            h3 { font-size: 105%; }
-
-            .menu-inferior a {
-                font-size: 14px;
-                padding: 8px 0;
-            }
-
-            select {
-                font-size: 90%;
-            }
+        #bloc1 {
+            background-color: #d3a007;
+            color: white !important;
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 140%; }
-            h2.subtitol { font-size: 120%; }
-            h3 { font-size: 100%; }
-
-            .menu-inferior a {
-                font-size: 12px;
-                padding: 6px 0;
-            }
-        }
     </style>
 </head>
 <body>
+
+    <!-- 🏠 BOTÓ HOME -->
+    <a href="paginaboto.html" class="home-btn">
+        <img src="home.png" alt="Home">
+    </a>
 
     <h1>Formulari de usuari</h1>
     <h2 class="subtitol">Bloc 1 — Demografia</h2>
 
     <form>
-
-        <h3>Renda mediana</h3>
+        <h3>Renda mitjana</h3>
         <select name="renda_mediana" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
             <option selected disabled>Selecciona una opció</option>
             <option value="baixa">Baixa</option>
@@ -137,17 +133,15 @@
             <option value="alta">Alta</option>
         </select>
 
-        <h3>Edat mediana</h3>
+        <h3>Edat mitjana</h3>
         <select name="edat_mediana" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
             <option selected disabled>Selecciona una opció</option>
             <option value="jove">Jove</option>
             <option value="mitjana">Mitjana</option>
             <option value="envellida">Envellida</option>
         </select>
-
     </form>
 
-    <!-- MENÚ PEGADO ABAJO SIEMPRE -->
     <div class="menu-inferior">
         <a id="bloc1" href="form_bloc1.html">Bloc 1</a>
         <a href="form_bloc2.html">Bloc 2</a>
