@@ -1,55 +1,313 @@
 <!DOCTYPE html>
-<html>
+<html lang="ca">
 {% load static %}
 <head>
-    <title>Busca la teva zona on viure</title> 
+    <title>Busca la teva zona on viure</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    
-
     <style>
         body {
-            margin-top: 10%;
-            font-size: 120%;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, sans-serif;
 
-            /* FONS TRONO */
+            /* FONS Mapa */
             background: url("{% static 'map.png' %}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed; /* Perquè el fons no es mogui al fer scroll */
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 5%;
+            padding-bottom: 50px;
         }
 
         h1 {
-            font-size: 250%;
+            font-size: 3rem; /* 250% aprox */
             font-weight: 600;
-            margin-bottom: 5%;
+            margin-bottom: 30px;
             text-align: center;
-            color:white
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
-        .btn {
-            font-size: 100%;
-            padding: 2% 4%;
+        /* Botó Principal */
+        .btn-main {
+            font-size: 1.5rem;
+            padding: 15px 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        .contenedor-boton {
-            width: 100%;
-            margin: 2% auto;
+        /* Estils dels Perfils (Joc de Trons) */
+        .profiles-section {
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        .profiles-title {
+            color: white;
             text-align: center;
+            text-shadow: 2px 2px 4px #000;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnes */
+            gap: 20px;
+        }
+
+        .profile-card {
+            background: rgba(0, 0, 0, 0.7); /* Fons fosc semi-transparent */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px); /* Efecte vidre */
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #ffd700; /* Color or */
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .profile-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .profile-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.3rem;
+            color: #f0e68c; /* Khaki/Or suau */
+            font-weight: bold;
+        }
+
+        .profile-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* Responsive: 2 columnes en tablets, 1 en mòbil */
+        @media (max-width: 768px) {
+            .profiles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 { font-size: 2rem; }
+        }
+
+        @media (max-width: 500px) {
+            .profiles-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-
 </head>
 <body>
 
-    <h1>Busca la teva zona on viure</h1>
+    <div class="main-container">
+        <h1>Busca la teva zona on viure</h1>
 
-    <div class="contenedor-boton">
-        <a href="{% url 'formulari' %}" class="btn btn-primary btn-lg" role="button">
-            COM ETS?
-        </a>
+        <div class="contenedor-boton">
+            <a href="{% url 'formulari' %}" class="btn btn-primary btn-main" role="button">
+                COM ETS?
+            </a>
+        </div>
+
+        <div class="profiles-section">
+            <h2 class="profiles-title">O tria el teu avatar:</h2>
+
+            <div class="profiles-grid">
+                <div class="profile-card" onclick="selectProfile('daenerys')">
+                    <span class="profile-icon">🐉</span>
+                    <h3>Daenerys Targaryen</h3>
+                    <p>Emprenedora, sostenible i busca comunitat.</p>
+                </div>
+
+                <div class="profile-card" onclick="selectProfile('cersei')">
+                    <span class="profile-icon">🦁</span>
+                    <h3>Cersei Lannister</h3>
+                    <p>Luxe, màxima seguretat i privacitat.</p>
+                </div>
+
+                <div class="profile-card" onclick="selectProfile('bran')">
+                    <span class="profile-icon">👁️</span>
+                    <h3>Bran Stark</h3>
+                    <p>Tecnologia, accessibilitat total i silenci.</p>
+                </div>
+
+                <div class="profile-card" onclick="selectProfile('jon')">
+                    <span class="profile-icon">🐺</span>
+                    <h3>Jon Snow</h3>
+                    <p>Vida autèntica, natura i servei públic.</p>
+                </div>
+
+                <div class="profile-card" onclick="selectProfile('arya')">
+                    <span class="profile-icon">⚔️</span>
+                    <h3>Arya Stark</h3>
+                    <p>Nòmada urbana, mobilitat i anonimat.</p>
+                </div>
+
+                <div class="profile-card" onclick="selectProfile('tyrion')">
+                    <span class="profile-icon">🍷</span>
+                    <h3>Tyrion Lannister</h3>
+                    <p>Cultura, gastronomia i vida social a peu.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <form id="hiddenForm" action="{% url 'resultat' %}" method="POST" style="display:none;">
+        {% csrf_token %}
+        <input type="hidden" name="renda_mediana" id="p_income">
+        <input type="hidden" name="densitat_poblacio" id="p_density">
+        <input type="hidden" name="edat_mediana" id="p_age">
+
+        <input type="hidden" name="oferta_gastronomica" id="p_gastronomy">
+        <input type="hidden" name="zones_verdes" id="p_green">
+        <input type="hidden" name="oferta_cultural" id="p_culture">
+
+        <input type="hidden" name="transport_public" id="p_transport">
+        <input type="hidden" name="metro_bus" id="p_bus">
+        <input type="hidden" name="carrils_bici" id="p_bike">
+        <input type="hidden" name="caminabilitat" id="p_walk">
+
+        <input type="hidden" name="seguretat_requerida" id="p_safety">
+        <input type="hidden" name="prioritat" id="p_priority">
+    </form>
+
+    <script>
+        // Dades predefinides basades en neighborhood_recommender.py
+        const profilesData = {
+            daenerys: {
+                renda: "mitjana",
+                densitat: "mitjana",
+                edat: "jove",
+                gastro: "moderada",
+                verds: "moltes",       // "Dracs" necessiten espai
+                cultura: "mitjana",
+                pt: "bo",
+                bus: "correcta",
+                bici: "extens",
+                camina: "alta",
+                seguretat: "alta",
+                prio: "comunitat"
+            },
+            cersei: {
+                renda: "alta",         // Reina
+                densitat: "baixa",     // Aïllada
+                edat: "mitjana",
+                gastro: "molt_alta",
+                verds: "pocs",
+                cultura: "baixa",
+                pt: "baix",            // Cotxe oficial
+                bus: "limitada",
+                bici: "inexistent",
+                camina: "baixa",
+                seguretat: "molt_alta", // Prioritat màxima
+                prio: "privacitat_luxe"
+            },
+            bran: {
+                renda: "alta",         // Sou tech
+                densitat: "baixa",     // Tranquil
+                edat: "mitjana",
+                gastro: "escassa",
+                verds: "alguns",
+                cultura: "mitjana",
+                pt: "bo",
+                bus: "correcta",
+                bici: "inexistent",
+                camina: "alta",        // Accessibilitat és clau (cadira)
+                seguretat: "estandard",
+                prio: "accessibilitat"
+            },
+            jon: {
+                renda: "mitjana",
+                densitat: "mitjana",
+                edat: "mitjana",
+                gastro: "moderada",
+                verds: "moltes",       // Natura
+                cultura: "mitjana",
+                pt: "bo",
+                bus: "correcta",
+                bici: "basic",
+                camina: "alta",
+                seguretat: "estandard",
+                prio: "comunitat"
+            },
+            arya: {
+                renda: "mitjana",
+                densitat: "alta",      // Barrejar-se
+                edat: "jove",
+                gastro: "moderada",
+                verds: "pocs",
+                cultura: "alta",
+                pt: "excel·lent",      // Mobilitat total
+                bus: "molt_abundant",
+                bici: "basic",
+                camina: "alta",
+                seguretat: "estandard",
+                prio: "accessibilitat"
+            },
+            tyrion: {
+                renda: "alta",
+                densitat: "alta",      // Vida social
+                edat: "mitjana",
+                gastro: "molt_alta",   // Vi i menjar
+                verds: "pocs",
+                cultura: "alta",
+                pt: "bo",
+                bus: "correcta",
+                bici: "inexistent",
+                camina: "alta",        // Tot a peu
+                seguretat: "alta",
+                prio: "cultura"
+            }
+        };
+
+        function selectProfile(charId) {
+            const d = profilesData[charId];
+            if(!d) return;
+
+            // Omplir inputs del formulari ocult amb els 'names' que espera Django
+            document.getElementById('p_income').value = d.renda;
+            document.getElementById('p_density').value = d.densitat;
+            document.getElementById('p_age').value = d.edat;
+
+            document.getElementById('p_gastronomy').value = d.gastro;
+            document.getElementById('p_green').value = d.verds;
+            document.getElementById('p_culture').value = d.cultura;
+
+            document.getElementById('p_transport').value = d.pt;
+            document.getElementById('p_bus').value = d.bus;
+            document.getElementById('p_bike').value = d.bici;
+            document.getElementById('p_walk').value = d.camina;
+
+            document.getElementById('p_safety').value = d.seguretat;
+            document.getElementById('p_priority').value = d.prio;
+
+            // Enviar formulari
+            document.getElementById('hiddenForm').submit();
+        }
+    </script>
 </body>
 </html>
