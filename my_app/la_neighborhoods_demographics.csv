@@ -1,0 +1,33 @@
+id,name,display_name,lat,lon,state,county,tract,geoid,acs_name,acs_year,median_household_income,total_population,median_age
+15048390,North Hills East Neighborhood Council District,North Hills East,34.2326161,-118.4625011,06,037,117510,06037117510,"Census Tract 1175.10, Los Angeles County, California",2020,45332.0,3661,30.4
+15048391,North Hills West Neighborhood Council District,North Hills West,34.2351485,-118.4857186,06,037,117303,06037117303,"Census Tract 1173.03, Los Angeles County, California",2020,101146.0,4369,38.0
+15059477,Panorama City Neighborhood Council District,Panorama City,34.2286517,-118.4451755,06,037,119900,06037119900,"Census Tract 1199, Los Angeles County, California",2020,84231.0,5123,38.0
+15059478,Mission Hills Neighborhood Council District,Mission Hills,34.2713002,-118.4529373,06,037,109400,06037109400,"Census Tract 1094, Los Angeles County, California",2020,83986.0,4044,40.1
+15059522,Sylmar Neighborhood Council District,Sylmar,34.3083124,-118.4514186,06,037,106520,06037106520,"Census Tract 1065.20, Los Angeles County, California",2020,71435.0,5710,33.6
+15339539,Van Nuys Neighborhood Council District,Van Nuys,34.1907345,-118.4505332,06,037,127805,06037127805,"Census Tract 1278.05, Los Angeles County, California",2020,52917.0,3511,37.5
+15339540,Lake Balboa Neighborhood Council District,Lake Balboa,34.1912118,-118.4931452,06,037,132101,06037132101,"Census Tract 1321.01, Los Angeles County, California",2020,58849.0,4727,31.9
+15339541,Reseda,Reseda,34.2037901,-118.5404374,06,037,131023,06037131023,"Census Tract 1310.23, Los Angeles County, California",2020,60481.0,2968,36.4
+15339542,Northridge South Neighborhood Council District,Northridge South,34.2221591,-118.5336501,06,037,115403,06037115403,"Census Tract 1154.03, Los Angeles County, California",2020,58013.0,3597,33.2
+15339543,Northridge East Neighborhood Council District,Northridge East,34.2568239,-118.5105726,06,037,111302,06037111302,"Census Tract 1113.02, Los Angeles County, California",2020,62289.0,5253,41.9
+15339544,Granada Hills South Neighborhood Council District,Granada Hills South,34.2641803,-118.5007291,06,037,111402,06037111402,"Census Tract 1114.02, Los Angeles County, California",2020,47967.0,6535,41.2
+15339545,Northridge West Neighborhood Council District,Northridge West,34.2535248,-118.5501567,06,037,111204,06037111204,"Census Tract 1112.04, Los Angeles County, California",2020,150732.0,5909,50.5
+15339546,Granada Hills North Neighborhood Council District,Granada Hills North,34.3006103,-118.5073097,06,037,106641,06037106641,"Census Tract 1066.41, Los Angeles County, California",2020,111000.0,2271,42.9
+15899803,Arleta Neighborhood Council District,Arleta,34.243174,-118.429436,06,037,119004,06037119004,"Census Tract 1190.04, Los Angeles County, California",2020,84028.0,3353,32.7
+15899804,Pacoima Neighborhood Council,Pacoima,34.2663229,-118.4065859,06,037,104704,06037104704,"Census Tract 1047.04, Los Angeles County, California",2020,44647.0,4525,30.0
+16741092,West Hills Neighborhood Council District,West Hills,34.2096098,-118.6354439,06,037,134422,06037134422,"Census Tract 1344.22, Los Angeles County, California",2020,130352.0,4681,45.2
+17307354,Los Feliz Neighborhood Council District,Los Feliz,34.1286081,-118.2985312,06,037,980009,06037980009,"Census Tract 9800.09, Los Angeles County, California",2020,,5,21.5
+18194737,Sherman Oaks Neighborhood Council District,Sherman Oaks,34.1492572,-118.4446675,06,037,141202,06037141202,"Census Tract 1412.02, Los Angeles County, California",2020,90474.0,3001,43.3
+18284559,Encino Neighborhood Council District,Encino,34.1564268,-118.5046272,06,037,139701,06037139701,"Census Tract 1397.01, Los Angeles County, California",2020,147500.0,5889,45.6
+18284560,Tarzana Neighborhood Council District,Tarzana,34.1562105,-118.5490233,06,037,139801,06037139801,"Census Tract 1398.01, Los Angeles County, California",2020,142250.0,3478,47.6
+18284570,Chatsworth Neighborhood Council District,Chatsworth,34.2571339,-118.6048777,06,037,113213,06037113213,"Census Tract 1132.13, Los Angeles County, California",2020,112222.0,5652,40.3
+18284571,Porter Ranch Neighborhood Council District,Porter Ranch,34.2878806,-118.5592008,06,037,108102,06037108102,"Census Tract 1081.02, Los Angeles County, California",2020,109091.0,3327,51.0
+18302562,Winnetka Neighborhood Council District,Winnetka,34.2106154,-118.5754189,06,037,134104,06037134104,"Census Tract 1341.04, Los Angeles County, California",2020,69507.0,4502,36.3
+18302563,Canoga Park Neighborhood Council District,Canoga Park,34.2146219,-118.6015988,06,037,134306,06037134306,"Census Tract 1343.06, Los Angeles County, California",2020,55081.0,4468,38.2
+18302564,Woodland Hills-Warner Center Neighborhood Council District,Woodland Hills-Warner Center,34.163131,-118.614793,06,037,137401,06037137401,"Census Tract 1374.01, Los Angeles County, California",2020,123214.0,4091,42.5
+18303949,Greater Valley Glen Neighborhood Council District,Greater Valley Glen,34.1866407,-118.4144391,06,037,123601,06037123601,"Census Tract 1236.01, Los Angeles County, California",2020,57588.0,4961,38.8
+18303950,North Hollywood West Neighborhood Council District,North Hollywood West,34.2041704,-118.4135017,06,037,123303,06037123303,"Census Tract 1233.03, Los Angeles County, California",2020,53866.0,2860,37.2
+18303951,North Hollywood Northeast Neighborhood Council District,North Hollywood Northeast,34.2036986,-118.3829272,06,037,122420,06037122420,"Census Tract 1224.20, Los Angeles County, California",2020,54022.0,5029,34.6
+18303952,North Hollywood Neighborhood Council District,North Hollywood,34.1694729,-118.3786499,06,037,125310,06037125310,"Census Tract 1253.10, Los Angeles County, California",2020,53769.0,3844,35.6
+18303953,Valley Village Neighborhood Council District,Valley Village,34.163285,-118.3956874,06,037,125102,06037125102,"Census Tract 1251.02, Los Angeles County, California",2020,108021.0,2121,36.3
+18303954,Greater Toluca Lake Neighborhood Council District,Greater Toluca Lake,34.154927,-118.3622738,06,037,125502,06037125502,"Census Tract 1255.02, Los Angeles County, California",2020,69397.0,3631,38.2
+18303955,Studio City Neighborhood Council District,Studio City,34.137897,-118.3910959,06,037,143801,06037143801,"Census Tract 1438.01, Los Angeles County, California",2020,165227.0,3342,39.8
