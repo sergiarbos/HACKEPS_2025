@@ -25,9 +25,22 @@ def result_view(request):
         }
 
         recs = recommend_neighborhoods_from_answers(answers, top_n=5)
-        # Convertim a diccionaris per passar-ho fàcilment al template
-        context = {"recs": recs.to_dict(orient="records")}
+
+        recs_list = recs.to_dict(orient="records")
+
+        # Per defecte, cap mapa
+        map_file = None
+        if recs_list:
+            best = recs_list[0]
+            # Exemple: "North Hills East" -> "North_Hills_East.html"
+            map_file = best["display_name"].replace(" ", "_") + ".html"
+
+        context = {
+            "recs": recs_list,
+            "map_file": map_file,
+        }
         return render(request, "pantalla_final.html", context)
 
-    # Si algú entra per GET, simplement mostra una pàgina buida o redirigeix:
-    return render(request, "pantalla_final.html", {"recs": []})
+    # Si és GET, simplement no hi ha resultats
+    return render(request, "pantalla_final.html", {"recs": [], "map_file": None})
+
