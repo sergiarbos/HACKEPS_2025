@@ -20,5 +20,7 @@ from my_app import views as my_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('form/', my_views.form_view, name='form'),
+    path('', my_views.home_view, name='home'),
+    path('formulari/', my_views.form_view, name='formulari'),
+    path('resultat/', my_views.result_view, name='resultat'),
 ]

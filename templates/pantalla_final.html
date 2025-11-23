@@ -56,10 +56,16 @@
 
     <h1>El teu barri ideal és:</h1>
 
-    <!-- On pintarem el resultat -->
-    <div id="resultats" style="max-width: 600px; background: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px; margin-top: 20px;">
-        Carregant recomanacions...
-    </div>
+    {% if results %}
+        <ul style="font-size: 22px; list-style:none;">
+            {% for r in results %}
+                <li><b>{{ r.display_name }}</b> — Score: {{ r.score_final|floatformat:3 }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No s'han rebut resultats.</p>
+    {% endif %}
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {

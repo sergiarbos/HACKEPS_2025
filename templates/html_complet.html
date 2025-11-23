@@ -158,7 +158,9 @@
     <section class="screen" data-bloc="1">
         <h2 class="subtitol">Bloc 1 — Demografia</h2>
 
-        <form>
+        <form action="/resultat/" method="POST">
+            {% csrf_token %}
+        
             <h3>Renda mitjana de la zona que busques</h3>
             <select name="renda_mediana" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
@@ -292,9 +294,9 @@
                 TROBA ZONA
             </button>
             --->
-            <button id="btnTrobaZona" type="button" class="btn btn-success btn-lg fw-bold">
+            <button type="submit" class="btn btn-success btn-lg fw-bold">
                 TROBA ZONA
-            </button>            
+            </button>                   
         </div>
     </section>
 
