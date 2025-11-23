@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resultats</title>
 
     <style>
         /* FONS DE LA PÀGINA */
@@ -16,12 +17,13 @@
             flex-direction: column;
             text-align: center;
 
-            background: url('trono.png');
+            background: url("{% static 'trono.png' %}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             color: white;
             text-shadow: 1px 1px 3px black;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
         /* 🏠 ICONA HOME */
@@ -43,108 +45,104 @@
         .home-btn img:hover {
             transform: scale(1.1);
         }
-    </style>
 
+        .card {
+            background: rgba(0,0,0,0.7);
+            padding: 20px 30px;
+            border-radius: 12px;
+            max-width: 600px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 0;
+            list-style: none;
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- 🏠 BOTÓ HOME -->
-    <a href="paginaboto.html" class="home-btn">
-        <img src="home.png" alt="Home">
+    <a href="{% url 'home' %}" class="home-btn">
+        <img src="{% static 'home.png' %}" alt="Home">
     </a>
 
-    <h1>El teu barri ideal és:</h1>
+    <div class="card">
+        <h1>El teu barri ideal és:</h1>
 
-    {% if results %}
-        <ul style="font-size: 22px; list-style:none;">
-            {% for r in results %}
-                <li><b>{{ r.display_name }}</b> — Score: {{ r.score_final|floatformat:3 }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No s'han rebut resultats.</p>
-    {% endif %}
+        {% if recs and recs|length > 0 %}
+            {% with best=recs.0 %}
+                <h2>{{ best.display_name }}</h2>
+                <p><strong>Puntuació global:</strong> {{ best.score_final|floatformat:3 }}</p>
 
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const container = document.getElementById("resultats");
-            const raw = localStorage.getItem("recom_resultats");
-
-            if (!raw) {
-                container.innerHTML = "<p>No hi ha resultats. Torna al formulari.</p>";
-                return;
-            }
-
-            let results;
-            try {
-                results = JSON.parse(raw);
-            } catch (e) {
-                console.error("JSON malformat a localStorage", e);
-                container.innerHTML = "<p>Error carregant resultats. Torna al formulari.</p>";
-                return;
-            }
-
-            if (!Array.isArray(results) || results.length === 0) {
-                container.innerHTML = "<p>No hi ha recomanacions disponibles.</p>";
-                return;
-            }
-
-            const best = results[0];
-            let html = `
-                <h2 style="margin-top:0;">${best.display_name}</h2>
                 <p>
-                    <strong>Puntuació global:</strong> ${(best.score_final * 100).toFixed(1)} / 100<br>
-            `;
+                    {% if best.median_income %}
+                        <strong>Renda mediana:</strong>
+                        ${{ best.median_income|floatformat:0 }}<br>
+                    {% endif %}
+                    {% if best.crime_rate_per_1000 %}
+                        <strong>Nivell de seguretat:</strong>
+                        {{ best.crime_rate_per_1000|floatformat:1 }} delictes per cada 1000 habitants
+                        (com més baix, millor)<br>
+                    {% endif %}
+                    {% if best.noise_db_centroid %}
+                        <strong>Soroll estimat:</strong>
+                        {{ best.noise_db_centroid|floatformat:1 }} dB<br>
+                    {% endif %}
+                    {% if best.restaurants_count or best.culture_count or best.parks_count %}
+                        <br>
+                        <strong>Entorn i oci:</strong><br>
+                        {% if best.restaurants_count %}
+                            • Restaurants: {{ best.restaurants_count }}<br>
+                        {% endif %}
+                        {% if best.culture_count %}
+                            • Espais culturals: {{ best.culture_count }}<br>
+                        {% endif %}
+                        {% if best.parks_count %}
+                            • Parcs: {{ best.parks_count }}<br>
+                        {% endif %}
+                    {% endif %}
 
-            if (best.median_income != null) {
-                html += `<strong>Renda mediana:</strong> $${Math.round(best.median_income).toLocaleString('en-US')}<br>`;
-            }
-            if (best.crime_rate_per_1000 != null) {
-                html += `<strong>Nivell de seguretat:</strong> ${best.crime_rate_per_1000.toFixed(1)} delictes per cada 1000 habitants (com més baix, millor)<br>`;
-            }
-            if (best.noise_db_centroid != null) {
-                html += `<strong>Soroll estimat:</strong> ${best.noise_db_centroid.toFixed(1)} dB<br>`;
-            }
-            if (best.restaurants_count != null) {
-                html += `<strong>Restaurants:</strong> ${best.restaurants_count} &nbsp; `;
-            }
-            if (best.culture_count != null) {
-                html += `<strong>Cultura:</strong> ${best.culture_count} &nbsp; `;
-            }
-            if (best.parks_count != null) {
-                html += `<strong>Parcs:</strong> ${best.parks_count}<br>`;
-            }
+                    {% if best.pt_stops_count or best.bike_infra_count or best.walkability_features_count %}
+                        <br>
+                        <strong>Mobilitat:</strong><br>
+                        {% if best.pt_stops_count %}
+                            • Parades de transport públic: {{ best.pt_stops_count }}<br>
+                        {% endif %}
+                        {% if best.bike_infra_count %}
+                            • Infraestructura ciclista: {{ best.bike_infra_count }}<br>
+                        {% endif %}
+                        {% if best.walkability_features_count %}
+                            • Elements de caminabilitat: {{ best.walkability_features_count }}<br>
+                        {% endif %}
+                    {% endif %}
+                </p>
+            {% endwith %}
 
-            if (best.pt_stops_count != null || best.bike_infra_count != null || best.walkability_features_count != null) {
-                html += `<br><strong>Mobilitat:</strong><br>`;
-                if (best.pt_stops_count != null) {
-                    html += `• Parades de transport públic: ${best.pt_stops_count}<br>`;
-                }
-                if (best.bike_infra_count != null) {
-                    html += `• Elements d'infraestructura ciclista: ${best.bike_infra_count}<br>`;
-                }
-                if (best.walkability_features_count != null) {
-                    html += `• Elements de caminabilitat: ${best.walkability_features_count}<br>`;
-                }
-            }
-
-            html += `</p>`;
-
-            // Si vols, mostra també els altres top 4:
-            if (results.length > 1) {
-                html += `<hr><h3>Altres opcions destacades:</h3><ol>`;
-                results.slice(1).forEach(n => {
-                    html += `<li>${n.display_name} — ${(n.score_final * 100).toFixed(1)}/100</li>`;
-                });
-                html += `</ol>`;
-            }
-
-            container.innerHTML = html;
-        });
-    </script>
+            {% if recs|length > 1 %}
+                <hr>
+                <h3>Altres opcions destacades:</h3>
+                <ol>
+                    {% for r in recs|slice:"1:" %}
+                        <li>
+                            {{ r.display_name }} — {{ r.score_final|floatformat:3 }}
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+        {% else %}
+            <p>No s'han rebut resultats. Torna al formulari i completa les teves preferències.</p>
+        {% endif %}
+    </div>
 
 </body>
-
 </html>
