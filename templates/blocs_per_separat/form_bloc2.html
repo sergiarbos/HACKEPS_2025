@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FORMULARI — CASA BARATHEON</title>
+    <title>FORMULARI — Bloc 2</title> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
-            padding: 0 0 70px 0;
+            padding: 0 0 80px 0; /* espai perquè el menú no tapi contingut */
             font-size: 110%;
             text-align: center;
 
-            background: url('baratheon.png');
+            /* Fons Lannister */
+            background: url('lannister.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
 
             font-family: 'Marcellus', serif;
             color: white;
-            text-shadow: 1px 1px 3px black;
         }
 
         /* 🏠 ICONA HOME */
@@ -33,11 +33,11 @@
         }
 
         .home-btn img {
-            width: 45px;  
+            width: 45px;
             height: auto;
             cursor: pointer;
             transition: transform 0.2s;
-            filter: invert(100%); /* opcional: fa la icona blanca si és negra */
+            filter: invert(100%); /* opcional: fa la icona blanca */
         }
 
         .home-btn img:hover {
@@ -46,32 +46,31 @@
 
         h1 {
             font-size: 200%;
-            margin-top: 60px; /* separació per no tapar el títol amb la icona */
-            margin-bottom: 5px;
-            text-transform: uppercase;
+            margin-top: 60px;  /* separació perquè no xoqui amb la icona */
+            margin-bottom: 10px;
         }
 
         h2.subtitol {
-            font-size: 140%;
+            font-size: 150%;
             margin-bottom: 10px;
             padding-bottom: 3px;
-            border-bottom: 2px solid #ffdd55;
-            color: #ffdd55;
+            border-bottom: 2px solid #ffd700;
+            color: black;
             display: inline-block;
         }
 
         h3 {
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-size: 110%;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-size: 115%;
         }
 
         select {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid #bfa76a;
+            background-color: rgba(255,255,255,0.9);
             color: black;
         }
 
+        /* MENÚ INFERIOR FIX */
         .menu-inferior {
             position: fixed;
             bottom: 0;
@@ -80,71 +79,94 @@
             background: #dce3e8;
             display: flex;
             justify-content: space-around;
-            border-top: 2px solid #b7c2c9;
+            border-top: 2px solid #c3ccd3;
             z-index: 999;
         }
 
         .menu-inferior a {
             flex: 1;
             text-align: center;
-            padding: 10px 0;
+            padding: 12px 0;
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
             color: black;
-            border-right: 1px solid #b7c2c9;
+            border-right: 1px solid #c3ccd3;
         }
 
         .menu-inferior a:last-child {
             border-right: none;
         }
 
+        /* Blocs actius */
         #bloc1 {
+            background-color: #2ecc71;
+            color: white !important;
+        }
+
+        #bloc2 {
             background-color: #d3a007;
             color: white !important;
         }
 
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 { font-size: 170%; }
+            h2.subtitol { font-size: 130%; }
+            h3 { font-size: 105%; }
+            .menu-inferior a { font-size: 14px; padding: 8px 0; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 150%; }
+            h2.subtitol { font-size: 120%; }
+            .menu-inferior a { font-size: 12px; padding: 6px 0; }
+        }
     </style>
 </head>
+
 <body>
 
-    <!-- 🏠 BOTÓ HOME -->
+    <!-- 🏠 ICONA HOME -->
     <a href="paginaboto.html" class="home-btn">
         <img src="home.png" alt="Home">
     </a>
 
     <h1>Formulari de usuari</h1>
-    <h2 class="subtitol">Bloc 1 — Demografia</h2>
+    <h2 class="subtitol"><b>Bloc 2 — Estil de vida</b></h2>
 
     <form>
-        <h3>Renda mediana</h3>
-        <select name="renda_mediana" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
+
+        <h3>Oferta gastronòmica</h3>
+        <select name="oferta_gastronomica" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="escassa">Escassa</option>
+            <option value="moderada">Moderada</option>
+            <option value="molt_alta">Molt alta</option>
+        </select>
+
+        <h3>Zones verdes</h3>
+        <select name="zones_verdes" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+            <option selected disabled>Selecciona una opció</option>
+            <option value="pocs">Poques</option>
+            <option value="alguns">Algunes</option>
+            <option value="molts">Moltes</option>
+        </select>
+
+        <h3>Oferta cultural</h3>
+        <select name="oferta_cultural" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
             <option selected disabled>Selecciona una opció</option>
             <option value="baixa">Baixa</option>
             <option value="mitjana">Mitjana</option>
             <option value="alta">Alta</option>
         </select>
 
-        <h3>Densitat de població</h3>
-        <select name="densitat_poblacio" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
-            <option selected disabled>Selecciona una opció</option>
-            <option value="baixa">Baixa</option>
-            <option value="mitjana">Mitjana</option>
-            <option value="alta">Alta</option>
-        </select>
-
-        <h3>Edat mediana</h3>
-        <select name="edat_mediana" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
-            <option selected disabled>Selecciona una opció</option>
-            <option value="jove">Jove</option>
-            <option value="mitjana">Mitjana</option>
-            <option value="envellida">Envellida</option>
-        </select>
     </form>
 
+    <!-- MENÚ PEGADO ABAJO -->
     <div class="menu-inferior">
         <a id="bloc1" href="form_bloc1.html">Bloc 1</a>
-        <a href="form_bloc2.html">Bloc 2</a>
+        <a id="bloc2" href="form_bloc2.html">Bloc 2</a>
         <a href="form_bloc3.html">Bloc 3</a>
         <a href="form_bloc4.html">Bloc 4</a>
     </div>
