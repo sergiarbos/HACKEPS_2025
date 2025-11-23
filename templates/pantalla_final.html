@@ -49,12 +49,96 @@
 
 <body>
 
-    <h1>El teu barri ideal és:</h1>
-
     <!-- 🏠 BOTÓ HOME -->
     <a href="paginaboto.html" class="home-btn">
         <img src="home.png" alt="Home">
     </a>
-    
+
+    <h1>El teu barri ideal és:</h1>
+
+    <!-- On pintarem el resultat -->
+    <div id="resultats" style="max-width: 600px; background: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px; margin-top: 20px;">
+        Carregant recomanacions...
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById("resultats");
+            const raw = localStorage.getItem("recom_resultats");
+
+            if (!raw) {
+                container.innerHTML = "<p>No hi ha resultats. Torna al formulari.</p>";
+                return;
+            }
+
+            let results;
+            try {
+                results = JSON.parse(raw);
+            } catch (e) {
+                console.error("JSON malformat a localStorage", e);
+                container.innerHTML = "<p>Error carregant resultats. Torna al formulari.</p>";
+                return;
+            }
+
+            if (!Array.isArray(results) || results.length === 0) {
+                container.innerHTML = "<p>No hi ha recomanacions disponibles.</p>";
+                return;
+            }
+
+            const best = results[0];
+            let html = `
+                <h2 style="margin-top:0;">${best.display_name}</h2>
+                <p>
+                    <strong>Puntuació global:</strong> ${(best.score_final * 100).toFixed(1)} / 100<br>
+            `;
+
+            if (best.median_income != null) {
+                html += `<strong>Renda mediana:</strong> $${Math.round(best.median_income).toLocaleString('en-US')}<br>`;
+            }
+            if (best.crime_rate_per_1000 != null) {
+                html += `<strong>Nivell de seguretat:</strong> ${best.crime_rate_per_1000.toFixed(1)} delictes per cada 1000 habitants (com més baix, millor)<br>`;
+            }
+            if (best.noise_db_centroid != null) {
+                html += `<strong>Soroll estimat:</strong> ${best.noise_db_centroid.toFixed(1)} dB<br>`;
+            }
+            if (best.restaurants_count != null) {
+                html += `<strong>Restaurants:</strong> ${best.restaurants_count} &nbsp; `;
+            }
+            if (best.culture_count != null) {
+                html += `<strong>Cultura:</strong> ${best.culture_count} &nbsp; `;
+            }
+            if (best.parks_count != null) {
+                html += `<strong>Parcs:</strong> ${best.parks_count}<br>`;
+            }
+
+            if (best.pt_stops_count != null || best.bike_infra_count != null || best.walkability_features_count != null) {
+                html += `<br><strong>Mobilitat:</strong><br>`;
+                if (best.pt_stops_count != null) {
+                    html += `• Parades de transport públic: ${best.pt_stops_count}<br>`;
+                }
+                if (best.bike_infra_count != null) {
+                    html += `• Elements d'infraestructura ciclista: ${best.bike_infra_count}<br>`;
+                }
+                if (best.walkability_features_count != null) {
+                    html += `• Elements de caminabilitat: ${best.walkability_features_count}<br>`;
+                }
+            }
+
+            html += `</p>`;
+
+            // Si vols, mostra també els altres top 4:
+            if (results.length > 1) {
+                html += `<hr><h3>Altres opcions destacades:</h3><ol>`;
+                results.slice(1).forEach(n => {
+                    html += `<li>${n.display_name} — ${(n.score_final * 100).toFixed(1)}/100</li>`;
+                });
+                html += `</ol>`;
+            }
+
+            container.innerHTML = html;
+        });
+    </script>
+
 </body>
+
 </html>

@@ -159,59 +159,67 @@
         <h2 class="subtitol">Bloc 1 — Demografia</h2>
 
         <form>
-            <h3>Renda mitjana</h3>
+            <h3>Renda mitjana de la zona que busques</h3>
             <select name="renda_mediana" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="baixa">Baixa</option>
+                <option value="baixa">Baixa (zones més assequibles)</option>
                 <option value="mitjana">Mitjana</option>
-                <option value="alta">Alta</option>
+                <option value="alta">Alta (zones més cares)</option>
             </select>
 
-            <h3>Densitat de població</h3>
+            <h3>Densitat de població preferida</h3>
             <select name="densitat_poblacio" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="baixa">Baixa</option>
+                <option value="baixa">Baixa (més tranquil·la, menys gent)</option>
                 <option value="mitjana">Mitjana</option>
-                <option value="alta">Alta</option>
+                <option value="alta">Alta (més vida, més gent)</option>
             </select>
 
-            <h3>Edat mitjana</h3>
+            <h3>Edat mitjana del barri que prefereixes</h3>
             <select name="edat_mediana" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="jove">Jove</option>
-                <option value="mitjana">Mitjana</option>
-                <option value="envellida">Envellida</option>
+                <option value="jove">Perfil jove</option>
+                <option value="mitjana">Edats diverses</option>
+                <option value="envellida">Perfil més adult/afiançat</option>
             </select>
         </form>
     </section>
 
-    <!-- 🔹 BLOC 2 — ESTIL DE VIDA -->
+    <!-- 🔹 BLOC 2 — ESTIL DE VIDA I ENTORN -->
     <section class="screen" data-bloc="2">
-        <h2 class="subtitol"><b>Bloc 2 — Estil de vida</b></h2>
+        <h2 class="subtitol"><b>Bloc 2 — Estil de vida i entorn</b></h2>
 
         <form>
-            <h3>Oferta gastronòmica</h3>
+            <h3>Oferta gastronòmica (restaurants, bars, cafès)</h3>
             <select name="oferta_gastronomica" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="escassa">Escassa</option>
+                <option value="escassa">Escassa (no és prioritari)</option>
                 <option value="moderada">Moderada</option>
-                <option value="molt_alta">Molt alta</option>
+                <option value="molt_alta">Molt alta (vull molta oferta)</option>
             </select>
 
-            <h3>Zones verdes</h3>
+            <h3>Zones verdes i parcs</h3>
             <select name="zones_verdes" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="pocs">Poques</option>
-                <option value="alguns">Algunes</option>
-                <option value="molts">Moltes</option>
+                <option value="poques">Poques (no és clau)</option>
+                <option value="algunes">Algunes</option>
+                <option value="moltes">Moltes (vull molta natura)</option>
             </select>
 
-            <h3>Oferta cultural</h3>
+            <h3>Oferta cultural (cinemes, teatres, museus...)</h3>
             <select name="oferta_cultural" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="baixa">Baixa</option>
+                <option value="baixa">Baixa (no és una prioritat)</option>
                 <option value="mitjana">Mitjana</option>
-                <option value="alta">Alta</option>
+                <option value="alta">Alta (vull molta activitat cultural)</option>
+            </select>
+
+            <h3>Sensibilitat al soroll</h3>
+            <select name="soroll_sensibilitat" class="form-select form-select-lg mb-3" style="max-width: 300px; margin:auto;">
+                <option selected disabled>Selecciona una opció</option>
+                <option value="indiferent">Indiferent (puc tolerar soroll)</option>
+                <option value="moderat">Prefereixo una zona moderadament tranquil·la</option>
+                <option value="molt_sensible">Molt sensible al soroll (busco màxima tranquil·litat)</option>
             </select>
         </form>
     </section>
@@ -221,15 +229,15 @@
         <h2 class="subtitol">Bloc 3 — Mobilitat</h2>
 
         <form>
-            <h3>Accés al transport públic</h3>
+            <h3>Accés general al transport públic</h3>
             <select name="transport_public" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="baix">Baix</option>
+                <option value="baix">Baix (no és tan important)</option>
                 <option value="bo">Bo</option>
-                <option value="excel·lent">Excel·lent</option>
+                <option value="excel·lent">Excel·lent (vull moltes opcions)</option>
             </select>
 
-            <h3>Disponibilitat bus</h3>
+            <h3>Freqüència i cobertura de bus/metro</h3>
             <select name="metro_bus" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
                 <option value="limitada">Limitada</option>
@@ -237,20 +245,20 @@
                 <option value="molt_abundant">Molt abundant</option>
             </select>
 
-            <h3>Carrils bici</h3>
+            <h3>Carrils bici i infraestructura ciclista</h3>
             <select name="carrils_bici" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="inexistent">Inexistent</option>
+                <option value="inexistent">Inexistent (no ho tinc en compte)</option>
                 <option value="basic">Bàsic</option>
-                <option value="extens">Extens</option>
+                <option value="extens">Extens (vull bona xarxa ciclista)</option>
             </select>
 
-            <h3>Caminabilitat</h3>
+            <h3>Caminabilitat (poder fer vida a peu)</h3>
             <select name="caminabilitat" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
                 <option value="baixa">Baixa</option>
                 <option value="mitjana">Mitjana</option>
-                <option value="alta">Alta</option>
+                <option value="alta">Alta (vull fer molta vida caminant)</option>
             </select>
         </form>
     </section>
@@ -263,26 +271,30 @@
             <h3>Nivell de seguretat requerit</h3>
             <select name="seguretat_requerida" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="estandard">Estàndard</option>
+                <option value="estandard">Estàndard (nivell normal)</option>
                 <option value="alta">Alta</option>
-                <option value="molt_alta">Molt alta</option>
+                <option value="molt_alta">Molt alta (prioritat màxima)</option>
             </select>
-
 
             <h3>Prioritat principal</h3>
             <select name="prioritat" class="form-select form-select-sm mb-2" style="max-width: 260px; margin:auto;">
                 <option selected disabled>Selecciona una opció</option>
-                <option value="comunitat">Comunitat</option>
+                <option value="comunitat">Comunitat i vida de barri</option>
                 <option value="privacitat_luxe">Privacitat i luxe</option>
-                <option value="accessibilitat">Accessibilitat</option>
-                <option value="cultura">Cultura i gastronomia</option>
+                <option value="accessibilitat">Accessibilitat i mobilitat</option>
+                <option value="cultura">Cultura, oci i gastronomia</option>
             </select>
         </form>
 
         <div class="contenedor-boton">
+            <!--
             <button class="btn btn-success btn-lg fw-bold" onclick="window.location.href='pantalla_final.html'">
                 TROBA ZONA
             </button>
+            --->
+            <button id="btnTrobaZona" type="button" class="btn btn-success btn-lg fw-bold">
+                TROBA ZONA
+            </button>            
         </div>
     </section>
 
@@ -322,6 +334,79 @@
 
             // bloc inicial
             activateBloc(1);
+        });
+    </script>
+
+    <script>
+        async function enviarRespostes() {
+            // Llista dels "name" dels teus <select>
+            const fields = [
+                "renda_mediana",
+                "densitat_poblacio",
+                "edat_mediana",
+                "oferta_gastronomica",
+                "zones_verdes",
+                "oferta_cultural",
+                // aquesta no la tens encara al formulari, la pots afegir després:
+                // "soroll_sensibilitat",
+                "transport_public",
+                "metro_bus",
+                "carrils_bici",
+                "caminabilitat",
+                "seguretat_requerida",
+                "prioritat"
+            ];
+
+            const answers = {};
+
+            fields.forEach(name => {
+                const el = document.querySelector(`select[name="${name}"]`);
+                if (!el) return;
+                const value = el.value;
+                if (value && !value.startsWith("Selecciona")) {
+                    answers[name] = value;
+                }
+            });
+
+            // Opcional: validar que tot està contestat
+            // if (Object.keys(answers).length < fields.length) { ... }
+
+            try {
+                const res = await fetch("/api/recommend", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(answers)
+                });
+
+                if (!res.ok) {
+                    alert("Error al servidor. Torna-ho a provar més tard.");
+                    return;
+                }
+
+                const data = await res.json();
+
+                // guardem els resultats en localStorage per poder-los llegir a pantalla_final.html
+                localStorage.setItem("recom_resultats", JSON.stringify(data.results));
+
+                // anem a la pantalla final
+                window.location.href = "pantalla_final.html";
+
+            } catch (err) {
+                console.error(err);
+                alert("No s'ha pogut connectar amb el servidor.");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // ja tens el codi dels blocs aquí...
+
+            const btn = document.getElementById("btnTrobaZona");
+            if (btn) {
+                btn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    enviarRespostes();
+                });
+            }
         });
     </script>
 
