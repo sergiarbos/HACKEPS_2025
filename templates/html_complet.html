@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ca">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,10 +26,10 @@
         }
 
         /* FONS PER CADA BLOC (CASA) */
-        body.bloc1 { background-image: url('baratheon.png'); }
-        body.bloc2 { background-image: url('lannister.png'); }
-        body.bloc3 { background-image: url('targaryen.png'); }
-        body.bloc4 { background-image: url('stark.png'); }
+        body.bloc1 { background-image: url("{% static 'baratheon.png' %}"); }
+        body.bloc2 { background-image: url("{% static 'lannister.png' %}"); }
+        body.bloc3 { background-image: url("{% static 'targaryen.png' %}"); }
+        body.bloc4 { background-image: url("{% static 'stark.png' %}"); }
 
         /* 🏠 ICONA HOME */
         .home-btn {
@@ -149,7 +150,7 @@
 
     <!-- 🏠 HOME -->
     <a href="paginaboto.html" class="home-btn">
-        <img src="home.png" alt="Home">
+        <img src="{% static 'home.png' %}" alt="Home">
     </a>
 
     <h1>Formulari de usuari</h1>
